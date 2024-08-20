@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://fg64248yqgk8"]
+
+[ext_resource type="Texture2D" uid="uid://byfj3xpqk00go" path="res://assets/grass.jpeg" id="1_w0llg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j36b3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bi1uw"]
+distance = -1.5
+
+[node name="WorldBorder" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("CanvasItemMaterial_j36b3")
+position = Vector2(0, 0.5)
+shape = SubResource("WorldBoundaryShape2D_bi1uw")
+debug_color = Color(0.740551, 0.366205, 0.742013, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(301.5, 7.25)
+scale = Vector2(3.91618, 0.1)
+texture = ExtResource("1_w0llg")

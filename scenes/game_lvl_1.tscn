@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct4ffj8pg6yfm"]
+
+[ext_resource type="PackedScene" uid="uid://cho3bptdvkttd" path="res://scenes/grandpa.tscn" id="1_bpt4q"]
+[ext_resource type="PackedScene" uid="uid://fg64248yqgk8" path="res://scenes/world_border.tscn" id="1_wibqx"]
+[ext_resource type="PackedScene" uid="uid://chpu6hisa55bj" path="res://scenes/platform.tscn" id="2_ghyno"]
+[ext_resource type="PackedScene" uid="uid://wt6w2oo6rd3t" path="res://scenes/trampoline.tscn" id="4_cpjpb"]
+
+[node name="GameLvl1" type="Node2D"]
+
+[node name="GameObjects" type="Node" parent="."]
+
+[node name="Trampoline" parent="GameObjects" instance=ExtResource("4_cpjpb")]
+position = Vector2(275, -40)
+
+[node name="Platform" parent="GameObjects" instance=ExtResource("2_ghyno")]
+position = Vector2(514, -141)
+rotation = -3.14159
+scale = Vector2(2.8905, -0.128714)
+
+[node name="Platform2" parent="GameObjects" instance=ExtResource("2_ghyno")]
+position = Vector2(813, -70)
+rotation = -3.14159
+scale = Vector2(2.0505, -0.128714)
+
+[node name="Platform3" parent="GameObjects" instance=ExtResource("2_ghyno")]
+position = Vector2(1143, -218)
+rotation = -3.14159
+scale = Vector2(2.8905, -0.128714)
+
+[node name="Platform4" parent="GameObjects" instance=ExtResource("2_ghyno")]
+position = Vector2(784, -302)
+rotation = -3.14159
+scale = Vector2(2.8905, -0.128714)
+
+[node name="Platform5" parent="GameObjects" instance=ExtResource("2_ghyno")]
+position = Vector2(368, -491)
+rotation = -3.14159
+scale = Vector2(2.8905, -0.128714)
+
+[node name="Platform6" parent="GameObjects" instance=ExtResource("2_ghyno")]
+position = Vector2(-17, -328)
+rotation = -3.14159
+scale = Vector2(2.8905, -0.128714)
+
+[node name="Trampoline3" parent="GameObjects" instance=ExtResource("4_cpjpb")]
+position = Vector2(671, -356)
+
+[node name="Trampoline4" parent="GameObjects" instance=ExtResource("4_cpjpb")]
+position = Vector2(1239, -271)
+
+[node name="Trampoline5" parent="GameObjects" instance=ExtResource("4_cpjpb")]
+position = Vector2(890, -112)
+
+[node name="WorldBorder" parent="." instance=ExtResource("1_wibqx")]
+position = Vector2(-81, 1)
+
+[node name="Grandpa" parent="." instance=ExtResource("1_bpt4q")]
+position = Vector2(100.145, -39.8425)
