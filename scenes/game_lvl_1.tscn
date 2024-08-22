@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct4ffj8pg6yfm"]
+[gd_scene load_steps=6 format=3 uid="uid://ct4ffj8pg6yfm"]
 
 [ext_resource type="PackedScene" uid="uid://cho3bptdvkttd" path="res://scenes/grandpa.tscn" id="1_bpt4q"]
+[ext_resource type="Script" path="res://scenes/game_lvl_1.gd" id="1_trh8g"]
 [ext_resource type="PackedScene" uid="uid://fg64248yqgk8" path="res://scenes/world_border.tscn" id="1_wibqx"]
 [ext_resource type="PackedScene" uid="uid://chpu6hisa55bj" path="res://scenes/platform.tscn" id="2_ghyno"]
 [ext_resource type="PackedScene" uid="uid://wt6w2oo6rd3t" path="res://scenes/trampoline.tscn" id="4_cpjpb"]
 
 [node name="GameLvl1" type="Node2D"]
+script = ExtResource("1_trh8g")
 
 [node name="GameObjects" type="Node" parent="."]
 
@@ -56,3 +58,7 @@ position = Vector2(-81, 1)
 
 [node name="Grandpa" parent="." instance=ExtResource("1_bpt4q")]
 position = Vector2(100.145, -39.8425)
+
+[node name="PlayerObjects" type="Node2D" parent="."]
+
+[connection signal="trampoline" from="Grandpa" to="." method="_on_grandpa_trampoline"]

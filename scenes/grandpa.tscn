@@ -23,3 +23,6 @@ shape = SubResource("CircleShape2D_xkn8p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="ItemSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(115, 0)
