@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @onready var sprite_2d = $Sprite2D
 
-
-const SPEED = 300.0
+const ACCELERATION_SMOOTHING_FOR_MOVEMENT = 6
 const JUMP_VELOCITY = -80.0
+const MAX_SPEED = 500.0
 @export var faceDir := true
 
 
@@ -15,30 +15,26 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	var itemSpawnPoint = $ItemSpawnPoint.global_position
+	var momvement_vector = get_movement_vector()
+	var direction = momvement_vector.normalized()
+	var target_velocity = direction * MAX_SPEED 
 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	jump()
 		
-	var direction = Input.get_axis("move-left", "move-right")
-
+	# Handle movement 
+	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING_FOR_MOVEMENT))
 	
-	if direction > 0:
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	
+	if direction.x > 0:
 		sprite_2d.flip_h = false
 		faceDir = true
-	elif direction < 0:
+	elif direction.x < 0:
 		sprite_2d.flip_h = true
 		faceDir = false
-
-	
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	if Input.is_action_just_pressed("PlaceItem"):
 		if faceDir:
@@ -48,3 +44,13 @@ func _physics_process(delta):
 		print(faceDir)
 
 	move_and_slide()
+
+
+func get_movement_vector():
+	var x_movement = Input.get_action_strength("move-right") - Input.get_action_strength("move-left")
+	return Vector2(x_movement, 0)
+
+
+func jump():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
