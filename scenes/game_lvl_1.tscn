@@ -57,7 +57,7 @@ position = Vector2(890, -112)
 position = Vector2(-81, 1)
 
 [node name="Grandpa" parent="." instance=ExtResource("1_bpt4q")]
-position = Vector2(100.145, -39.8425)
+position = Vector2(-224, -695)
 
 [node name="PlayerObjects" type="Node2D" parent="."]
 
