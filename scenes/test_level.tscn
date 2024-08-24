@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b10k0rkuu2qwb"]
+
+[ext_resource type="PackedScene" uid="uid://fg64248yqgk8" path="res://scenes/world_border.tscn" id="1_l5p1m"]
+[ext_resource type="PackedScene" uid="uid://cho3bptdvkttd" path="res://scenes/grandpa.tscn" id="2_vwd34"]
+
+[node name="testLevel" type="Node2D"]
+
+[node name="WorldBorder" parent="." instance=ExtResource("1_l5p1m")]
+position = Vector2(-81, 1)
+
+[node name="Grandpa" parent="." instance=ExtResource("2_vwd34")]
+position = Vector2(-235, -253)

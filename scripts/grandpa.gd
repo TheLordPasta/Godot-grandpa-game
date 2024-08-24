@@ -40,7 +40,7 @@ func _physics_process(delta):
 		if faceDir:
 			trampoline.emit(itemSpawnPoint)
 		else:
-			trampoline.emit(Vector2(itemSpawnPoint.x * (-1), itemSpawnPoint.y))
+			trampoline.emit(Vector2(itemSpawnPoint.x - (2 * $ItemSpawnPoint.position.x), itemSpawnPoint.y))
 		print(faceDir)
 
 	move_and_slide()
